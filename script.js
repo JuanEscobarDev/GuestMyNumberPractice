@@ -17,23 +17,27 @@ document.querySelector('.number').textContent = secretNumber;
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
-
-  if (!guess) {
-    document.querySelector('.message').textContent = 'No hay número 😔👌';
-    score--;
-    document.querySelector('.score').textContent = score;
-  } else if (guess === secretNumber) {
+  if (score > 0) {
+    if (!guess) {
+      document.querySelector('.message').textContent = 'No hay número 😔👌';
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else if (guess === secretNumber) {
+      document.querySelector('.message').textContent =
+        'Adivinaste perrita! 🎉💖🐶';
+    } else if (guess > secretNumber) {
+      document.querySelector('.message').textContent =
+        '¡Te pasaste perra estupida! 😠🚫🐶📈';
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else if (guess < secretNumber) {
+      document.querySelector('.message').textContent =
+        '¡Te falta perra estupida! 😠🚫🐶📉';
+      score--;
+      document.querySelector('.score').textContent = score;
+    }
+  } else {
     document.querySelector('.message').textContent =
-      'Adivinaste perrita! 🎉💖🐶';
-  } else if (guess > secretNumber) {
-    document.querySelector('.message').textContent =
-      '¡Te pasaste perra estupida! 😠🚫🐶📈';
-    score--;
-    document.querySelector('.score').textContent = score;
-  } else if (guess < secretNumber) {
-    document.querySelector('.message').textContent =
-      '¡Te falta perra estupida! 😠🚫🐶📉';
-    score--;
-    document.querySelector('.score').textContent = score;
+      'PERDEDORA DE MIERDA 💩💩💩';
   }
 });
