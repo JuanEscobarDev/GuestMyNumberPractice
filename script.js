@@ -20,6 +20,12 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = 'No hay número 😔👌';
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent =
-      'Adivinaste Perrita! 🎉💖🐕';
+      'Adivinaste perrita! 🎉💖🐶';
+  } else if (guess > secretNumber) {
+    document.querySelector('.message').textContent =
+      '¡Te pasaste perra estupida! 😠🚫🐶';
+  } else if (guess < secretNumber) {
+    document.querySelector('.message').textContent =
+      '¡Te falta perra estupida! 😠🚫🐶';
   }
 });
