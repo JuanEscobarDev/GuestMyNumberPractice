@@ -10,8 +10,17 @@ document.querySelector('.guess').value = 23;
 console.log(document.querySelector('.guess').value);
 */
 
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+
+document.querySelector('.again').addEventListener('click', function () {
+  document.querySelector('.score').textContent = 20;
+  document.querySelector('.message').textContent = 'Empieza a adivinar...';
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
+  document.querySelector('.number').textContent = '?';
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+});
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
