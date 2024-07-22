@@ -17,7 +17,7 @@ document.querySelector('.number').textContent = secretNumber;
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
-  if (score > 0) {
+  if (score > 1) {
     if (!guess) {
       document.querySelector('.message').textContent = 'No hay número 😔👌';
       score--;
@@ -25,6 +25,10 @@ document.querySelector('.check').addEventListener('click', function () {
     } else if (guess === secretNumber) {
       document.querySelector('.message').textContent =
         'Adivinaste perrita! 🎉💖🐶';
+
+      document.querySelector('body').style.backgroundColor = '#60b347';
+
+      document.querySelector('.number').style.width = '30rem';
     } else if (guess > secretNumber) {
       document.querySelector('.message').textContent =
         '¡Te pasaste perra estupida! 😠🚫🐶📈';
